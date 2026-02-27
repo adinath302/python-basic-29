@@ -1,0 +1,85 @@
+# test -
+
+# 1.
+s = "hello world"
+print(s.upper())
+
+# 2.
+s1 = "PYTHON PROGRAMMING"
+print(s1.lower())
+
+# 3.
+s2 = "python is fun"
+print(s2.capitalize())
+
+# 4.
+s4 = "data science"
+print(len(s4))
+
+# 5.
+s5 = "This is a bad idea"
+print(s5.replace("bad", "Good"))
+
+# 6.
+s6 = "hello world"
+print(s6.index("o"))
+
+# 7.
+s7 = "hello world"
+print(s7.count("l"))
+
+# 8.
+s8 = "Python123"
+print(s8.isalpha())
+
+# 9.
+s9 = "123456"
+print(s9.isnumeric())
+
+# 10.
+s10 = "apple,banana,mango"
+print(s10.split(","))
+
+# 11.
+s11 = ["Python", "is", "fun"]
+print("".join(s11))
+
+# 12.
+s12 = " hello world "
+print(s12.strip())
+
+# 13.
+s13 = "hello world"
+print(s13.startswith("hello"))
+
+# 14.
+s14 = "hello world"
+print(s14.endswith("world"))
+
+# 15.
+s15 = "python"
+print(s15.title())
+
+# 16.
+s16 = "abcdef"
+print(s16[::-1])
+
+# 17.
+s17 = "hello world"
+print(s17[6:])
+
+# 18.
+s18 = "python is fun"
+a = s18.split()
+print(a)
+print("-".join(a))
+
+# 19.
+s19 = "123"
+print(int(s19))
+print(type(int(s19)))
+
+# 20.
+s20 = 234
+print(str(s20))
+print(type(str(s20)))

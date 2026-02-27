@@ -1,0 +1,63 @@
+1. Shallow Copy
+A shallow copy of an object creates a new object, but it does not recursively copy the objects within it. Instead, it just copies references to the nested objects (i.e., it copies the "top-level" object but not the objects inside it). Therefore, both the original and the shallow copy refer to the same inner objects.
+
+Characteristics :
+-----------------
+The outer object is copied, but inner objects are shared between the original and the copied object.
+If the nested objects inside the original object are modified, the changes will reflect in both the original and the shallow copy.
+#Example1
+import copy
+original_list = [[11,22], [33, 44]]
+shallow_copy_list = copy.copy(original_list)
+
+# Modify the inner list in the shallow_copy_list
+shallow_copy_list[1][0] = 99
+
+print("Shallow Copy:", shallow_copy_list)  # Output: [1, [99, 3], 4]
+print("Original:", original_list)        # Output: [1, [99, 3], 4]
+
+
+### Different memory address for the outer list
+print(id(original_list)) #137755820080320
+print(id(shallow_copy_list)) #137755820028032
+
+##Same memory address for inner lists
+print(id(original_list[0])) #140173563759040
+print(id(shallow_copy_list[0])) #140173563759040
+
+
+2. Deep Copy
+A deep copy creates a new object and recursively copies all the objects contained within the original object. This means that both the outer object and the nested objects are copied. Therefore, modifications to the inner objects in the original will not affect the deep copy, and vice versa.
+Characteristics:
+---------------
+Both the outer object and all the inner objects are copied, so the copied object is completely independent of the original.
+Changes to the nested objects in the original do not affect the deep copy and vice versa.
+
+#Example2:
+import copy
+# Create a nested list
+original_list = [[11, 22], [33, 44]]
+
+# Create a deep copy of the original list
+deep_copy_list = copy.deepcopy(original_list)
+
+# Modify the inner list in the deep copy
+deep_copy_list[1][0] = 99
+
+# Printing the lists to show the difference
+print("Original:", original_list)         # Output: [[11, 22], [33, 44]]
+print("Deep Copy:", deep_copy_list)       # Output: [[11, 22], [99, 44]]
+
+# Printing memory addresses to show difference in objects
+print("ID of original_list:", id(original_list))           # Different from deep_copy_list
+##output:ID of original_list: 133783835769856
+print("ID of deep_copy_list:", id(deep_copy_list))         # Different from original_list
+##output:ID of deep_copy_list: 133783835717568
+
+# Checking the IDs of inner lists
+print("ID of original_list[0]:", id(original_list[0]))     # Different from deep_copy_list[0]
+#output:ID of original_list[0]: 133783837067712
+
+print("ID of deep_copy_list[0]:", id(deep_copy_list[0]))   # Different from original_list[0]
+##output:ID of deep_copy_list[0]: 133783835712576
+

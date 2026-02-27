@@ -1,0 +1,89 @@
+# task --
+
+# 1.
+s = "hello world"
+print(s.upper())
+
+# 2.
+s = "PYTHON PROGRAMMING"
+print(s.lower())
+
+# 3.
+d = "python is fun"
+print(d.capitalize())
+
+# 4.
+x = "data science"
+print(len(x))
+
+# 5.
+i = "This is a bad idea"
+print(i.replace("bad", "good"))
+
+# 6.
+p = "hello world"
+print(p.index("o"))
+
+# 7.
+h = "hello world"
+print(h.count("l"))
+
+# 8.
+m = "Python123"
+print(m.isalpha())
+
+# 9.
+f = "123456"
+print(f.isnumeric())
+
+# 10.
+sk = "apple,banana,mango"
+print(sk.split(","))  # it will return a list type with a comma as a separator
+print(type(sk.split(",")))
+
+# 11.
+sd = ["python", "is", "fun"]
+print(type(sd))
+print(" ".join(sd))  # it will return a string type with a space as a separator
+print(type(" ".join(sd)))  # it will return a string type with a space as a separator
+
+# 12.
+we = " hello world "
+print(we.strip())
+
+# 13.
+sd = "hello world "
+print(sd.startswith("hello"))
+
+# 14.
+sd = "hello world "
+print(sd.endswith("world"))
+
+# 15.
+py = "python programming"
+print(py.title())
+
+# 16.
+sx = "abcdef"
+print(sx[::-1])
+
+# 17.
+hj = "hello world"
+print(hj[5::1])
+
+# 18.
+hj = "python is fun"
+sd = hj.split()
+print("-".join(sd))
+
+# 19.
+aer = "2343"
+print(type(aer))
+print(int((aer)))
+print(type(int(aer)))
+
+# 20.
+aer = 2343
+print(type(aer))
+print(str((aer)))
+print(type(str(aer)))

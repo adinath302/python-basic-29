@@ -1,0 +1,136 @@
+student_db = {101 : {'name':'Vaibhav Patil','course':'Data Science','tfees':40000,'pfees':30000,'rfees':1000},102 : {'name':'Rajesh Patil','course':'Data Analytics','tfees':40000,'pfees':30000,'rfees':1000}}
+
+courses = {'Data Science':40000,'Data Analytics':30000,'Web Development': 25000,'Testing':20000}
+users = {'vaibhav':'vaibhav123','suraj':'suraj123','pavan':'p@123'}
+
+def login():
+    username = input("Username: ")
+    Password = input("Password: ")
+    if username in users and Password == users[username]:
+        return True
+    else:
+        return False
+    
+def dashboard():
+    print(f'The Kiran Academy'.center(40,'-'))
+    print('''
+    1.Add Student Details
+    2.Display Student Record
+    3.Update Student Data
+    4.Delete Student Data
+    5.Filter
+    6.LogOut
+        ''')
+    ch = int(input("Enter Your Choice: "))
+    return ch
+    
+
+def add():
+    name = input("Name: ")
+    all_courses=list(courses.keys())  #['Data Science', 'Data Analytics', 'Web Development', 'Testing']
+    sr=1
+    for course in all_courses:
+        print(f'{sr}.{course}')
+        sr=sr+1
+    course_no =int(input("Select course: "))
+    index = course_no-1
+    course = all_courses[index]
+    cfees = courses[course]
+    print(f'Fees for {course}: {cfees}')
+    dis = float(input("Discount : "))
+    tfees = cfees - cfees *dis/100
+    print(f'Fess after {dis}% discount {tfees} for {course}')
+    pfees = float(input("Enter amount: "))
+    rfees = tfees-pfees
+    reg = len(student_db)+101
+    student_db[reg] = {'name':name,'course':course,'tfees':tfees,'pfees':pfees,'rfees':rfees}
+
+
+    
+def display():
+    print('-'*127)
+    print(f'|{'Reg':^20}|{'Name':^20}|{'Course':^20}|{'Tfees':^20}|{'Pfees':^20}|{'Rfees':^20}|')
+    print('-'*127)
+    for reg in student_db:
+        print(f'|{reg:^20}|{student_db[reg]['name']:^20}|{student_db[reg]['course']:^20}|{student_db[reg]['tfees']:^20}|{student_db[reg]['pfees']:^20}|{student_db[reg]['rfees']:^20}|')
+        print('-'*127)
+
+
+def update():
+    reg = int(input("Reg: "))
+    while reg not in student_db:
+        reg = int(input("Please Enter Correct Reg: "))
+    
+    print('''
+        1.Name
+        2.change course
+          
+    ''')
+    ch = int(input("Enter Your Choice: "))
+    if ch == 1:
+        uname = input("Enter Name: ")
+        student_db[reg]['name']=uname
+        print("Updated successfully.....")
+        display()
+    elif ch == 2:
+        pass
+    else:
+        print("Invalid Choice")
+
+def delete():
+    reg = int(input("Enter Reg Number: "))
+    while reg not in student_db:
+        reg = int(input("Enter Valid Reg Number: "))
+    del student_db[reg]
+
+def filter():
+    print('''
+        Filter By
+          1.Course Name
+          2.Remaining Fees
+    ''')
+    ch = int(input("Enter Your Choice: "))
+    if ch==1:
+        cname = input("Course Name: ")
+        print('-'*127)
+        print(f'|{'Reg':^20}|{'Name':^20}|{'Course':^20}|{'Tfees':^20}|{'Pfees':^20}|{'Rfees':^20}|')
+        print('-'*127)
+        for reg in student_db:
+            if cname.lower() == student_db[reg]['course'].lower():
+                print(f'|{reg:^20}|{student_db[reg]['name']:^20}|{student_db[reg]['course']:^20}|{student_db[reg]['tfees']:^20}|{student_db[reg]['pfees']:^20}|{student_db[reg]['rfees']:^20}|')
+                print('-'*127)
+
+
+    elif ch==2:
+        print('-'*127)
+        print(f'|{'Reg':^20}|{'Name':^20}|{'Course':^20}|{'Tfees':^20}|{'Pfees':^20}|{'Rfees':^20}|')
+        print('-'*127)
+        for reg in student_db:
+            if student_db[reg]['rfees']>0:
+                print(f'|{reg:^20}|{student_db[reg]['name']:^20}|{student_db[reg]['course']:^20}|{student_db[reg]['tfees']:^20}|{student_db[reg]['pfees']:^20}|{student_db[reg]['rfees']:^20}|')
+                print('-'*127)
+    else:
+        print("Invalid choice....")
+
+
+
+
+while True:
+    user=login()
+    if user:
+        while True:
+            ch=dashboard()
+            if ch==1:
+                add()
+            elif ch==2:
+                display()
+            elif ch==3:
+                update()
+            elif ch==4:
+                delete()
+            elif ch==5:
+                filter()
+            elif ch==6:
+                break
+            else:
+                print("Invalid input")

@@ -1,0 +1,75 @@
+ test
+
+ 1.
+ python is a high level programming language ,easy to learn, used in multiple
+ domains ,it contains features like is an 1. interpreted language , 2. simple to learn and 3. used in multiple domains like web development , data science , machine learning , artificial intelligence and 4. it's dynamically typed language
+
+ 2.
+ python is a platform independent , it can be create and used in any operating system , it's portable means you can develop an application in one os(operating system) and run it in any other os without changing the code.
+
+ 3.
+ python is created by guido van rossum and first released in 1991
+
+ 4.
+ variable is a container used to store value
+ example - first = "hello world"
+
+ 5.
+ list                                            tuple
+ mutable                                         immutable
+ square brackets [1,2]                           parentheses(1,2)
+
+ 6.
+ set is a unique collection of unordered items,it is mutable and heterogeneous in nature, duplicate value is not allowed in it
+ example -
+ fruits = {"apple", "banana", "cherry", "apple"}
+ print(fruits)  {'apple', 'banana', 'cherry'
+
+ 7.
+ dictionary is a collection of mutable key-value pairs, it's nature is heterogeneous, duplicate key is not allowed in it but the duplicate value is allowed.
+ example -
+vivo_x200 = {
+    "brand": "vivo",
+    "model": "x200",
+    "color": "black",
+    "ram": "12gb",
+    "storage": "256gb",
+    "price": 78000,
+}
+
+ 8.
+a = [1, 2, 3, 4, 5, 6]
+a.append(7)   to add a single element to the list
+a.extend([8, 9, 10])   to add multiple elements to the list
+a.index(5)   to check the index of the value
+a.pop()   default value is last
+a.pop(2)   to delete the value based on the index
+a.clear()   to clear the list
+
+ 9.
+ dic = {"name": "ketan", "age": 23, "city": "pune", "country": "india"}
+ dic.get("name")  it will return the value of the key and if the key is not available then it will not throw any error
+ s = dic.values()  it will give you the values of the dictionary
+ s = dic.items()  return a list of dict's key-value pairs as tuple
+ e = dic.keys()  return a list of dict's keys
+ e = dic.clear()  it will clear the dict
+ print(e)
+
+ 10.
+ for loop used to iterate collection of data such as list,tuple,dict and execute code once for each item in the collection .
+ example
+ fruits = ["apple", "banana", "cherry"]
+
+ for fruit in fruits:
+ print(f"I like {fruit}")
+
+ 11.
+ r = {'name': 'ketan', 'age': 23, 'city': 'pune', 'country': 'india'}
+ for a in r.values():
+ print(a)  ketan 23 pune india
+
+ 12.
+ r = {"name": "ketan", "age": 23, "city": "pune", "country": "india"}
+ for x, y in r.items():
+     print(x)  name age city country
+     print(y)  ketan 23 pune india
